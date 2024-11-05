@@ -18,6 +18,8 @@ public static int Arg1;
             num= num/16;
         }
 
+	System.out.println("This is a test update");
+
         System.out.println("Hexadecimal representation is: " + hexadecimal);
 
     }
