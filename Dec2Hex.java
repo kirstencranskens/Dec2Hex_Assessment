@@ -1,16 +1,10 @@
-import java.util.Scanner;
 import java.util.logging.Logger;
 
 class Dec2Hex {
     private static final Logger logger = Logger.getLogger(Dec2Hex.class.getName()); // Logger for output
-    private static final int ARG1; // Made static and final as recommended by SonarQube
-
-    static {
-        ARG1 = 0; // Initializing ARG1 with a default value in a static block
-    }
 
     public static void main(String[] args) {
-        int num; // Declared `num` on a separate line as recommended
+        int num;
 
         try {
             // Check if an argument is provided
@@ -25,7 +19,7 @@ class Dec2Hex {
             // Array for hexadecimal representation
             char[] ch = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
             int rem;
-            StringBuilder hexadecimal = new StringBuilder(); // Using StringBuilder for better performance
+            StringBuilder hexadecimal = new StringBuilder();
 
             logger.info(String.format("Converting the Decimal Value %d to Hex...", num));
 
@@ -35,7 +29,11 @@ class Dec2Hex {
                 num = num / 16;
             }
 
-            logger.info(String.format("Hexadecimal representation is: %s", hexadecimal.toString()));
+            if (hexadecimal.length() > 0) {
+                logger.info(String.format("Hexadecimal representation is: %s", hexadecimal.toString()));
+            } else {
+                logger.warning("No conversion occurred; input was zero or invalid.");
+            }
         } catch (NumberFormatException e) {
             logger.severe("Invalid input. Please enter a valid integer.");
         }
