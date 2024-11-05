@@ -1,21 +1,34 @@
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
-class Dec2HexTest {
+public class Dec2HexTest {
 
     @Test
-    void testValidConversion() {
-        assertEquals("F", Dec2Hex.convertToHex(15));  // Assuming convertToHex is the method for conversion
+    public void testConvertToHex() {
+        assertEquals("F", Dec2Hex.convertToHex(15));
+        assertEquals("A", Dec2Hex.convertToHex(10));
+        assertEquals("1A", Dec2Hex.convertToHex(26));
+        assertEquals("0", Dec2Hex.convertToHex(0));
     }
 
     @Test
-    void testNoInput() {
-        assertThrows(IllegalArgumentException.class, () -> Dec2Hex.main(new String[]{}));
+    public void testNegativeNumber() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Dec2Hex.convertToHex(-1);
+        });
     }
 
     @Test
-    void testInvalidInput() {
-        assertThrows(NumberFormatException.class, () -> Dec2Hex.main(new String[]{"abc"}));
+    public void testInvalidInput() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Dec2Hex.main(new String[]{});
+        });
+    }
+
+    @Test
+    public void testInvalidFormat() {
+        assertThrows(NumberFormatException.class, () -> {
+            Dec2Hex.main(new String[]{"abc"});
+        });
     }
 }
-
