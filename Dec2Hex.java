@@ -4,7 +4,7 @@ class Dec2Hex {
     private static final Logger logger = Logger.getLogger(Dec2Hex.class.getName());
 
     public static String convertToHex(int num) {
-        // Check for negative input and throw an exception
+        // Check for negative input and throw an exception test
         if (num < 0) {
             throw new IllegalArgumentException("Input must be a non-negative integer.");
         }
