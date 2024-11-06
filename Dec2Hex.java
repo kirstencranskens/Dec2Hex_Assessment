@@ -42,7 +42,7 @@ class Dec2Hex {
             throw e; // Rethrow to be caught in tests
         } catch (IllegalArgumentException e) {
             logger.severe(e.getMessage());
-            throw e; // Rethrow to be caught in tests
+            throw e; // Rethrow to be caught in tests tests tests
         }
     }
 }
